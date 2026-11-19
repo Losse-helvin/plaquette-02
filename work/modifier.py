@@ -10,6 +10,19 @@ def box(p,r,t,size=14,name='pr',color=(0,0,0),align=0):
 # Keep the same Poppins body size as the adjacent cards (16 pt).
 # Extend the middle card downward to accommodate the five complete entries.
 p=D[1]
+# Extend the side cards to the same bottom baseline as the central card.
+# Start below their last text line; retain the original 21 pt bottom corners.
+for left,right,old_bottom in [(71.48111,472.64456,726.15491),(967.90265,1368.41235,728.99994)]:
+ top=old_bottom-21
+ shape=p.new_shape()
+ shape.draw_polyline([(left,top),(right,top),(right,769)])
+ k=0.55228475*21
+ shape.draw_bezier((right,769),(right,769+k),(right-21+k,790),(right-21,790))
+ shape.draw_line((right-21,790),(left+21,790))
+ shape.draw_bezier((left+21,790),(left+21-k,790),(left,769+k),(left,769))
+ shape.draw_line((left,769),(left,top))
+ shape.finish(color=None,fill=(.9569,.9608,.9882),closePath=True)
+ shape.commit()
 p.add_redact_annot(f.Rect(536,470,908,719),fill=bg)
 p.apply_redactions(images=0,graphics=0)
 p.draw_rect(f.Rect(519.69,449.62,920.46,790),color=None,fill=bg,radius=0.0524)
