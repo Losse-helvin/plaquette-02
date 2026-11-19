@@ -7,23 +7,30 @@ def font(p,n,x): p.insert_font(fontname=n,fontfile=f'work/font{x}.ttf')
 def box(p,r,t,size=14,name='pr',color=(0,0,0),align=0):
  v=p.insert_textbox(f.Rect(r),t,fontname=name,fontsize=size,color=color,align=align)
  assert v>=0,(t,v)
-# Replace body of channel card, leaving title and rounded border intact.
-p=D[1];r=f.Rect(540,537,907,718)
-p.add_redact_annot(r,fill=bg);p.apply_redactions(images=0,graphics=0)
-font(p,'pr',432)
+# Keep the same Poppins body size as the adjacent cards (16 pt).
+# Extend the middle card downward to accommodate the five complete entries.
+p=D[1]
+p.add_redact_annot(f.Rect(536,470,908,719),fill=bg)
+p.apply_redactions(images=0,graphics=0)
+p.draw_rect(f.Rect(519.69,449.62,920.46,790),color=None,fill=bg,radius=0.0524)
+font(p,'pr',432);font(p,'pb',438)
+p.insert_text((537.89,497.49),'Choix de leviers adaptés au',fontname='pb',fontsize=25,color=blue)
+p.insert_text((537.89,526.74),'client :',fontname='pb',fontsize=25,color=blue)
 items=["Télémarketing / Data propriétaire : Calls équipes internes et fichiers propriétaires","Marketing direct : SMS, RCS et emailing ciblés sur BDD propriétaires","Social Ads : Facebook, Instagram, LinkedIn…","SEA : Google Ads, Microsoft Ads…","Publicité conversationnelle IA : OpenAI Ads (ChatGPT)…"]
-y=541
+y=542.25
+ft=f.Font(fontfile='work/font432.ttf')
 for t in items:
- # controlled wrapping with embedded Poppins
- ft=f.Font(fontfile='work/font432.ttf');lines=[];s=''
+ lines=[];s=''
  for w in t.split():
-  if ft.text_length((s+' '+w).strip(),fontsize=12.5)>333:lines.append(s);s=w
+  if ft.text_length((s+' '+w).strip(),fontsize=16)>337:lines.append(s);s=w
   else:s=(s+' '+w).strip()
  lines.append(s)
- p.draw_rect(f.Rect(549,y+7,553,y+11),color=None,fill=(0,0,0))
- box(p,(563,y,904,y+len(lines)*18+4),'\n'.join(lines),12.5)
- y+=len(lines)*18+5
-assert y<725,y
+ # Round bullets match the adjacent lists.
+ p.draw_circle((551.76,y+10),2.3,color=None,fill=(0,0,0))
+ for j,line in enumerate(lines):
+  p.insert_text((565.09,y+16.8+j*23.25),line,fontname='pr',fontsize=16)
+ y+=len(lines)*23.25+4
+assert y<780,y
 # Remove obsolete standalone text streams without concealing searchable text.
 D.update_stream(446,b'');D.update_stream(606,b'')
 # Form: remove old question and answers from the source stream.

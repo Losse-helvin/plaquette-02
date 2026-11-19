@@ -25,3 +25,6 @@ Le point-virgule après SEA dans la consigne est harmonisé en deux-points.
 Dépendances Python : PyMuPDF et Pillow.
 Commande depuis la racine : `python work/modifier.py`.
 Les cinq pages modifiées ont été rendues et contrôlées visuellement.
+
+## Ajustement typographique
+Le bloc central de la page 2 utilise désormais Poppins Regular 16 pt, comme les blocs voisins. Son encadré est agrandi vers le bas pour conserver les cinq leviers sans réduire la taille du texte. Le titre reste en Poppins Bold 25 pt.
