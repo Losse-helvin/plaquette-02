@@ -28,3 +28,6 @@ Les cinq pages modifiées ont été rendues et contrôlées visuellement.
 
 ## Ajustement typographique
 Le bloc central de la page 2 utilise désormais Poppins Regular 16 pt, comme les blocs voisins. Son encadré est agrandi vers le bas pour conserver les cinq leviers sans réduire la taille du texte. Le titre reste en Poppins Bold 25 pt.
+
+## Alignement des encadrés
+Les trois encadrés de la page 2 sont alignés en bas à 790 pt. Les encadrés latéraux sont prolongés vers le bas en conservant leurs coins arrondis et sans déplacer ni redimensionner les textes. Vérification visuelle effectuée sur le rendu de la page.
