@@ -1,8 +1,20 @@
+# Plaquette caisses enregistreuses tactiles — création
+
+Livrable : `Plaquette HelloLead - Caisses enregistreuses tactiles.pdf` (9 pages, 1440×810).
+Déclinaison de la plaquette solaire corrigée, même charte (bleu HelloLead, Poppins, fonds pale), même structure : couverture, méthode et cinq leviers, modération & enrichissement, contact.
+
+- Page 1 (couverture) : logo d'origine extrait du PDF solaire, titre « Caisses enregistreuses tactiles », cibles CHR, boulangeries, restauration rapide, commerces alimentaires ; visuel photoréaliste de caisse tactile en boulangerie (généré, sans texte lisible).
+- Pages 3 à 7 : maquettes illustratives par levier (SMS/RCS, SEA, META Ads, CALL, Emailing) avec un exemple de lead fictif côté « Modération & enrichissement » (activité, projet, périmètre, besoins, budget, échéance) à confronter au formulaire CRM n° 2015589.
+- Chaque maquette porte une mention « illustrative » (annonce, recherche, sponsorisé, objet) et le pied de page rappelle que les questions sont à valider avec le formulaire CRM.
+- Visuels par métier : boulangerie (couverture, SMS), restaurant traditionnel (SEA), restauration rapide (META), épicerie/commerce (Emailing) ; les quatre photos sont générées et stockées dans `work/`.
+- Pages 2, 8 et 9 conservées du modèle avec bandeaux et folios actualisés ; aucun contenu solaire résiduel (contrôle automatisé sur « solaire, photovolta, toiture, kWh, kWc, surplus »), aucun lien hypertexte du PDF source conservé.
+- Métadonnées PDF : titre « HelloLead — Caisses enregistreuses tactiles ».
+- Production : `work/creer_caisses.py` (PyMuPDF + Pillow, `python work/creer_caisses.py` depuis la racine, dépendances dans `work/requirements-caisses.txt`). Contrôles automatiques : 9 pages, texte dans les limites des pages, aucune référence solaire.
+
 # Plaquette solaire — corrections
 
 Livrable : `Plaquette HelloLead - Panneaux solaires - Corrigee.pdf` (9 pages).
 Les deux PDF d'origine sont conservés sans modification.
-
 Corrections effectuées (numéros physiques du PDF, couverture comprise) :
 - Page 2 : remplacement des leviers d'acquisition par les cinq entrées demandées.
 - Pages 3 et 4 : suppression de la ligne « avec revente du surplus » dans le type de projet.
