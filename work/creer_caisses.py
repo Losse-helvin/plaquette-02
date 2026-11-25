@@ -47,8 +47,12 @@ def bullets(p,x,y,items,width=280,size=18,gap=15):
         y=text(p,x+19,y,s,size,width-19)+gap
     return y
 
-im=Image.open(ROOT/'work/caisse-tactile.jpg').convert('RGB')
-def photo(p, r, corners=False):
+IM_Boulangerie=Image.open(ROOT/'work/caisse-tactile.jpg').convert('RGB')
+IM_Restaurant=Image.open(ROOT/'work/restaurant-caisse.jpg').convert('RGB')
+IM_FastFood=Image.open(ROOT/'work/fastfood-caisse.jpg').convert('RGB')
+IM_Epicerie=Image.open(ROOT/'work/epicerie-caisse.jpg').convert('RGB')
+def photo(p, r, corners=False, im=None):
+    if im is None: im=IM_Boulangerie
     w,h=int(r.width*1.5),int(r.height*1.5)
     ratio=max(w/im.width,h/im.height)
     z=im.resize((round(im.width*ratio), round(im.height*ratio)),Image.Resampling.LANCZOS)
@@ -155,7 +159,7 @@ c,p=base(4,'SEA','Capter une recherche\nau bon moment',[
 rect(p,451,147,510,68,fill=WHITE,radius=10)
 text(p,469,157,'RECHERCHE ILLUSTRATIVE',10,470,bold=True,color=MUTED)
 text(p,469,178,'caisse tactile pour restaurant',20,469,color=INK)
-photo(p,f.Rect(451,231,961,411),True)
+photo(p,f.Rect(451,231,961,411),True,IM_Restaurant)
 rect(p,451,427,510,286,fill=WHITE,radius=12)
 text(p,472,441,'Équipez votre restaurant',25,466,bold=True,color=BLUE)
 text(p,472,480,'Quel est l’objectif de votre projet ?',17,465,bold=True)
@@ -178,7 +182,7 @@ rect(p,479,148,455,566,fill=WHITE,radius=13)
 p.draw_circle((511,178),13,fill=BLUE,color=None)
 text(p,535,160,'Solutions d’encaissement',17,355,bold=True)
 text(p,535,184,'Sponsorisé · Maquette illustrative',11,350,color=MUTED)
-photo(p,f.Rect(493,221,920,446),True)
+photo(p,f.Rect(493,221,920,446),True,IM_FastFood)
 y=text(p,500,466,'Le coup de feu mérite\nune caisse à la hauteur.',25,415,bold=True,color=BLUE,leading=1.2)
 text(p,500,y+15,'Commandes, menus, encaissement : présentez vos besoins et échangez avec un fournisseur.',16,414,leading=1.42)
 button(p,500,646,'Étudier mon projet',412)
@@ -220,7 +224,7 @@ rect(p,463,149,489,565,fill=WHITE,radius=13)
 text(p,484,168,'OBJET',11,445,bold=True,color=MUTED)
 text(p,484,192,'Et si votre caisse suivait votre rythme ?',19,445,bold=True)
 p.draw_line((483,234),(931,234),color=PALE,width=2)
-photo(p,f.Rect(484,250,931,443),True)
+photo(p,f.Rect(484,250,931,443),True,IM_Epicerie)
 y=text(p,484,460,'Un encaissement adapté\nà votre commerce.',25,447,bold=True,color=BLUE,leading=1.2)
 text(p,484,y+14,'Première installation ou remplacement : partagez vos priorités pour être recontacté au sujet de votre projet.',16,443,leading=1.4)
 button(p,484,637,'Être recontacté pour mon projet',447)
