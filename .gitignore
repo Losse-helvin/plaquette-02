@@ -1,4 +1,7 @@
 .venv/
 __pycache__/
 work/ref-*.png
+work/ctrl-*.png
+work/final-*.png
+work/gen/
 work/caisses-controle-*.png
