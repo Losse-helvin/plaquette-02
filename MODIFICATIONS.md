@@ -1,15 +1,23 @@
 # Plaquette caisses enregistreuses tactiles — création
 
 Livrable : `Plaquette HelloLead - Caisses enregistreuses tactiles.pdf` (9 pages, 1440×810).
-Déclinaison de la plaquette solaire corrigée, même charte (bleu HelloLead, Poppins, fonds pale), même structure : couverture, méthode et cinq leviers, modération & enrichissement, contact.
+Déclinaison de la plaquette solaire corrigée : même charte (bleu HelloLead #0A5BFF, Poppins, fonds pâles #F4F5FB, mêmes gabarits de panneaux) et même structure : couverture, méthode et cinq leviers, un levier par page avec maquettes, modération & enrichissement, contact.
 
-- Page 1 (couverture) : logo d'origine extrait du PDF solaire, titre « Caisses enregistreuses tactiles », cibles CHR, boulangeries, restauration rapide, commerces alimentaires ; visuel photoréaliste de caisse tactile en boulangerie (généré, sans texte lisible).
-- Pages 3 à 7 : maquettes illustratives par levier (SMS/RCS, SEA, META Ads, CALL, Emailing) avec un exemple de lead fictif côté « Modération & enrichissement » (activité, projet, périmètre, besoins, budget, échéance) à confronter au formulaire CRM n° 2015589.
-- Chaque maquette porte une mention « illustrative » (annonce, recherche, sponsorisé, objet) et le pied de page rappelle que les questions sont à valider avec le formulaire CRM.
-- Visuels par métier : boulangerie (couverture, SMS), restaurant traditionnel (SEA), restauration rapide (META), épicerie/commerce (Emailing) ; les quatre photos sont générées et stockées dans `work/`.
-- Pages 2, 8 et 9 conservées du modèle avec bandeaux et folios actualisés ; aucun contenu solaire résiduel (contrôle automatisé sur « solaire, photovolta, toiture, kWh, kWc, surplus »), aucun lien hypertexte du PDF source conservé.
-- Métadonnées PDF : titre « HelloLead — Caisses enregistreuses tactiles ».
-- Production : `work/creer_caisses.py` (PyMuPDF + Pillow, `python work/creer_caisses.py` depuis la racine, dépendances dans `work/requirements-caisses.txt`). Contrôles automatiques : 9 pages, texte dans les limites des pages, aucune référence solaire.
+- Page 1 (couverture) : logo HelloLead repris du PDF solaire (rendu 600 dpi), titre « Caisses enregistreuses tactiles », cibles CHR, boulangeries, restauration rapide et commerces alimentaires ; visuel de caisse tactile en boulangerie (généré, sans texte lisible).
+- Page 2 : « Génération de leads » conservée du modèle (méthode, 13 ans d'expérience, cinq leviers conformes à la règle permanente ci-dessous).
+- Pages 3 à 7 : un levier par page — SMS/RCS, SEA - Google Ads, META Ads, CALL, Emailing. Chaque page reprend le gabarit du modèle : panneau de gauche (accroche + bénéfices), panneau central de maquettes, panneau de droite « Modération & Enrichissement » avec un lead fictif (établissement, statut, type de caisse, fonction attendue, budget, échéance, coordonnées masquées).
+- Maquettes dessinées en vectoriel : cartes SMS/RCS et landing page avec formulaire (p. 3), résultats Google et formulaire qualifiant (p. 4), post sponsorisé Facebook, carrousel par métier et formulaire instantané (p. 5), écran CRM HelloLead et photo de centre d'appels (p. 6), deux e-mails type et séquence de relance en 3 temps (p. 7).
+- Visuels par métier : boulangerie (couverture, SMS), restaurant (SEA, e-mail), restauration rapide (META), épicerie fine et pâtisserie (Emailing). Les sept photos sont générées pour la plaquette et stockées dans `work/` ; la photo du centre d'appels est reprise du PDF solaire.
+- Chaque page de levier porte la mention « Maquette illustrative : enseignes, chiffres et coordonnées fictifs. Questions et champs à valider avec le formulaire CRM n° 2015589. »
+- Pages 8 (modération & enrichissement) et 9 (contact) conservées du modèle ; aucun contenu solaire résiduel (contrôle automatisé sur « solaire, photovolta, toiture, kWh, kWc, surplus, autoconsommation, panneaux »), aucun lien hypertexte conservé, textes dans les limites des pages et du panneau de droite.
+- Métadonnées PDF : titre « HelloLead — Caisses enregistreuses tactiles », auteur HelloLead.
+
+## Production
+- `work/creer_caisses.py` : construction des pages 1 et 3 à 7, montage des pages 2, 8 et 9 reprises du PDF solaire, contrôles et écriture du PDF.
+- `work/plaquette_lib.py` : moteur de mise en page (polices, panneaux arrondis, textes, pastilles, images à coins arrondis, flèches).
+- Polices Poppins (Regular, Medium, SemiBold, Bold, ExtraBold) téléchargées depuis `google/fonts` et stockées dans `work/`.
+- Dépendances : PyMuPDF et Pillow dans `.venv`.
+- Commande depuis la racine : `.venv/bin/python work/creer_caisses.py`.
 
 # Plaquette solaire — corrections
 
